@@ -1,11 +1,9 @@
 package org.expensly.authService.contoller;
 
-import jakarta.annotation.PostConstruct;
 import org.expensly.authService.dto.request.LoginDto;
 import org.expensly.authService.dto.request.UserDto;
 import org.expensly.authService.dto.response.SignupDto;
 import org.expensly.authService.dto.response.TokenDto;
-import org.expensly.authService.model.CustomUserDetails;
 import org.expensly.authService.model.UserHeaders;
 import org.expensly.authService.service.AuthService;
 import org.expensly.authService.utils.response.Response;
@@ -13,8 +11,6 @@ import org.expensly.authService.utils.response.ResponseFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 @RestController

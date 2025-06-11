@@ -1,7 +1,6 @@
 package org.empensly.userService.config;
 
 import lombok.extern.slf4j.Slf4j;
-import org.apache.kafka.common.header.Header;
 import org.empensly.userService.enitie.UserEntity;
 import org.empensly.userService.utils.interfaces.DltStrategy;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,14 +11,7 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.listener.DeadLetterPublishingRecoverer;
 import org.springframework.kafka.listener.DefaultErrorHandler;
 import org.springframework.kafka.support.serializer.DeserializationException;
-import org.springframework.kafka.support.serializer.JsonDeserializer;
 import org.springframework.util.backoff.ExponentialBackOff;
-
-import java.io.BufferedInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
 
 @Slf4j
 @Configuration

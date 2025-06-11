@@ -3,7 +3,6 @@ package org.empensly.userService.utils.serializer;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.kafka.common.errors.SerializationException;
 import org.apache.kafka.common.serialization.Deserializer;
 import org.empensly.userService.enitie.UserEntity;
 import org.springframework.kafka.support.serializer.DeserializationException;
