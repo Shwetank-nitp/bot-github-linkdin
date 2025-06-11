@@ -1,0 +1,42 @@
+spring:
+  application:
+    name: User Service
+
+  datasource:
+    url: ${DATABASE_URL}
+    username: root
+    password: 1234
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    open-in-view: false
+
+server:
+  port: ${PORT}
+  servlet:
+    context-path: /api
+
+kafka:
+  bootstrap:
+    servers: ${KAFKA_BOOTSTRAP_SERVER}
+  consumer:
+    concurrency: 3
+    group_id: auth_user_consumer
+  retry:
+    backoff:
+      max: 10000
+      ms: 100
+  topic:
+    name: user_info
+
+logger:
+  level:
+    org:
+      hibernate:
+        SQL: OFF

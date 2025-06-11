@@ -1,0 +1,27 @@
+<configuration scan="true" scanPeriod="10 seconds">
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%-4relative [%thread] %-5level %logger{35} -%kvp- %msg %n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>logs\server.log.html</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>logs\server.log.%d.%i.html</fileNamePattern>
+            <maxFileSize>50MB</maxFileSize>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+            <charset>UTF-8</charset>
+            <layout class="ch.qos.logback.classic.html.HTMLLayout">
+                <pattern>%d{HH:mm:ss.SSS}%thread%level%logger%line%msg</pattern>
+            </layout>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="FILE"/>
+        <appender-ref ref="STDOUT"/>
+    </root>
+</configuration>
