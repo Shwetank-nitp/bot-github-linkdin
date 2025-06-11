@@ -34,6 +34,4 @@ build/
 
 
 ### custom ###
-*.yml
-*.log
 logs/

@@ -1,0 +1,56 @@
+spring:
+  application:
+    name: Authentication Service
+
+  datasource:
+    url: ${DATABASE_URL}
+    password: 1234
+    username: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    open-in-view: false
+
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: OFF
+
+jwt:
+  access:
+    token: ${ACCESS_TOKEN}
+  refresh:
+    token: ${REFRESH_TOKEN}
+
+server:
+  servlet:
+    context-path: /api
+  port: ${PORT}
+
+kafka:
+  list:
+    brokers: ${KAFKA_BOOTSTRAP_SERVER}
+  topic:
+    name: user_info
+  retry:
+    backoff:
+      ms: 100
+      max: 10000
+  consumer:
+    concurrency: 3
+
+oauth:
+  github:
+    exchange-uri: https://github.com/login/oauth/access_token
+    client:
+      id: ${CLIENT_ID}
+      secret: ${CLIENT_SECRET}
+    callback:
+      url: http://localhost:3000/login/oauth/github/callback
